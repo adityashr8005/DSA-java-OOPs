@@ -4,7 +4,7 @@ package DSA_Kunal.Binary;
 public class CeilingSearch {
     public static void main(String[] args) {
         int[] arr = {-9, -3, 0, 1, 4, 6, 10, 12, 34, 44, 56, 78, 99};
-        int target = -8;
+        int target = 99;
         int ans=ceiling(arr,target);
         System.out.println("Target found at index " + ans + "\nTarget number is " + arr[ans]);
     }

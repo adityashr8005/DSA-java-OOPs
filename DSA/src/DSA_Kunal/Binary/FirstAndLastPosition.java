@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class FirstAndLastPosition {
     public static void main(String[] args) {
-        int[] arr = {1,2,4,7,7,7,8,8,9};
-        int target = 7;
+        int[] arr = {1,2,3,5,5,5,5,6,7};
+        int target = 5;
         int[] ans = searchRange(arr,target);
         System.out.println(Arrays.toString(ans));
     }
@@ -22,9 +22,13 @@ public class FirstAndLastPosition {
         int s=0;
         int e= arr.length-1;
         int mid;
+        if(arr.length<1){
+            return -1;
+        }
         if(target > arr[arr.length-1]){
             return -1;
         }
+
         while(s <= e) {
             mid = s + (e-s) /2;
 

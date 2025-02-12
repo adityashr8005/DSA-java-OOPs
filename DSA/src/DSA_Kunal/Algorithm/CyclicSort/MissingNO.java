@@ -5,7 +5,7 @@ public class MissingNO {
     public static void main(String[] args) {
         int [] arr = {5,0,2,1,4};
        int ans = sort(arr);
-        System.out.println(ans + " is a missing number.");
+        System.out.println( ans + " is a missing number.");
     }
     static int sort(int[] arr){
 

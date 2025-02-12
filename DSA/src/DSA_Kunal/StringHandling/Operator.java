@@ -19,7 +19,7 @@ public class Operator {
         System.out.println("Aditya"+new ArrayList<>()); //Aditya[] -> cause arrayList is empty.
 
         //NOTE:Operator '+' in java is only defined for primitive and if any one of them is of String
-        //System.out.println(new Integer(56) + new ArrayList<>());
+//        System.out.println(new Integer(56) + new ArrayList<>());
         //It will show error cause there is no any string only expression ,
         // So, at least one has to be string.
         System.out.println(new Integer(55) + " " + new ArrayList<>());//55 [] --> Output is of string type.

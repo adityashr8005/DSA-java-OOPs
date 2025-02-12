@@ -9,8 +9,8 @@ public class StringBuilderClass {
         }
         System.out.println(builder);  //abcdefghijklmnopqrstuvwxyz
         builder.deleteCharAt(0);
-        System.out.println(builder);
-        builder.reverse();
         System.out.println(builder);  //bcdefghijklmnopqrstuvwxyz
+        builder.reverse();
+        System.out.println(builder);  //zyxwvutsrqponmlkjihgfedcb
     }
 }
