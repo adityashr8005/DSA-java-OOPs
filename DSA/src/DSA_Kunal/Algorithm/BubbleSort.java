@@ -8,7 +8,6 @@ package DSA_Kunal.Algorithm;
 import java.util.Arrays;
 
 public class BubbleSort {
-    //main function.
     public static void main(String[] args) {
 
         int[] arr = {3,4,5,2,1};
