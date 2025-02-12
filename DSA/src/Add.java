@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Add{
     public static void main(String[] args) {
+        //Finding perimeter and area 
         Scanner input = new Scanner(System.in);
         System.out.print("Enter Length:");
         int l = input.nextInt();
