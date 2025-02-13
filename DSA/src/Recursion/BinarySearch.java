@@ -2,6 +2,7 @@ package Recursion;
 
 public class BinarySearch {
     public static void main(String[] args) {
+        //Initilizes array
         int[] arr = {1,3,5,7,9,10,20};
         int target = 1;
         int s=0;
