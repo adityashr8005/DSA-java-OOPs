@@ -1,63 +1,37 @@
 package Leet.OO1;
 
+import java.util.Hashtable;
+
 public class DifferenceFrequency {
     public static void main(String[] args) {
 
-        String s = "abcabca";
+        String s = "aaaabbc";
         int ans = maxDifference(s);
         System.out.println(ans);
     }
     static int maxDifference(String s){
-        int count1=0;
-        int count2=0;
-        int count3=0;
-//        int i, j;
-        for (int i=0; i<1; i++){
-            for (int j=0; j<s.length(); j++) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    count1++;
-                }
-            }
-        }
-        for (int i=count1; i<count1+1; i++){
-           for (int j=0; j<s.length(); j++){
-               if (s.charAt(i)==s.charAt(j)){
-                   count2++;
-               }
-           }
-        }
+        Hashtable<Character,Integer> map = new Hashtable<>();
 
-        if ((count1%2==0 && count2%2==0) || (count1%2!=0 && count2%2!=0)){
-            int k=count1+count2;
-            for (int i=k; i<k+1; i++){
-                for (int j=0; j<s.length(); j++){
-                    if (s.charAt(i)==s.charAt(j)){
-                        count3++;
-                    }
-                }
-            }
-            if (count1>count2) {
-                if ((count1 % 2 == 0 || count3 % 2 == 0) && (count1 % 2 != 0 || count3 % 2 != 0)) {
-                    if (count1 > count3) {
-                        return count1 - count3;
-                    }
-                    return count3 - count1;
-                }
-            }
-            if ((count2 % 2 == 0 || count3 % 2 == 0) && (count2 % 2 != 0 || count3 % 2 != 0)) {
-                if (count2 > count3) {
-                    return count2 - count3;
-                }
-                return count3 - count2;
+        for (int i=0; i<s.length(); i++){
+            if (map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+            }else {
+                map.put(s.charAt(i),1);
             }
         }
-
-        if ((count1%2==0 || count2%2==0) && (count1%2!=0 || count2%2!=0)){
-            if (count1>count2){
-                return count1-count2;
+        int x=s.length(),y=0;
+        for (int j=0; j<s.length(); j++){
+            int a = map.get(s.charAt(j));
+            if (a%2==0){
+                if (a<=x){
+                    x=a;
+                }
+            }else {
+                if (a>=y){
+                    y=a;
+                }
             }
-            return count2-count1;
         }
-        return 0;
+        return y-x;
     }
 }
