@@ -1,6 +1,5 @@
 package Leet.OO2;
 
-//import java.util.Arrays;
 import java.util.Hashtable;
 
 public class Smallest_positive {
@@ -26,6 +25,7 @@ public class Smallest_positive {
     }
 }
 
+//Another way but more complexity...
 
 //    static int firstMissingPositive(int[] nums){
 //        Hashtable<Integer,Integer> h = new Hashtable<>();
