@@ -1,5 +1,5 @@
 package Leet.OO2;
-
+//Prime number less than n
 public class CountPrime {
     public static void main(String[] args) {
         int n = 0;
