@@ -1,7 +1,6 @@
 package Leet.March;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Hashtable;
 
 /*
@@ -33,15 +32,23 @@ public class FindMissing_andRepeatElement {
 
         int[] ans=new int[2];
 
-        for (int i=0; i<grid.length; i++){
-            for (int j=0; j<grid.length; j++){
-                if (h.get(grid[i][j])==null) {
-                    h.put(grid[i][j], grid[i][j]);
-                }else {
-                    ans[0]=h.get(grid[i][j]);
+        for (int[] integer : grid)
+            for (int j = 0; j < grid.length; j++) {
+                if (h.get(integer[j]) == null) {
+                    h.put(integer[j], integer[j]);
+                } else {
+                    ans[0] = h.get(integer[j]);
                 }
             }
-        }
+
+//        for (int i=0; i<grid.length; i++)
+//            for (int j = 0; j < grid.length; j++) {
+//                if (h.get(grid[i][j]) == null) {
+//                    h.put(grid[i][j], grid[i][j]);
+//                } else {
+//                    ans[0] = h.get(grid[i][j]);
+//                }
+//            }
 
         for (int i=1; i<=grid.length * grid.length; i++){
             if (h.get(i)==null){
