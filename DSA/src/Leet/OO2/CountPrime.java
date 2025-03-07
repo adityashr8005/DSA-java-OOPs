@@ -2,7 +2,7 @@ package Leet.OO2;
 //Prime number less than n
 public class CountPrime {
     public static void main(String[] args) {
-        int n = 0;
+        int n = 19;
         int ans = countPrimes(n);
         System.out.println(ans);
     }
@@ -13,14 +13,14 @@ public class CountPrime {
             prime[i] = true;
         }
         for (int p = 2; p * p <= n; p++) {
-            if (prime[p] == true) {
+            if (prime[p]) {
                 for (int i = p*p; i<=n; i += p)
                     prime[i] = false;
             }
         }
 
         for (int i = 2; i <= n; i++) {
-            if (prime[i] == true) {
+            if (prime[i]) {
                 System.out.println(" " + i);
                 count++;
             }
