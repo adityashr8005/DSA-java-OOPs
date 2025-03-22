@@ -30,10 +30,10 @@ public class RemoveDuplicate {
               nums[index++]=nums[i];
           }
       }
-      int[] newArr = new int[index];
-      for (int i=0; i<index; i++){
-          newArr[i]=nums[i];
-      }
+//      int[] newArr = new int[index];
+//      for (int i=0; i<index; i++){
+//          newArr[i]=nums[i];
+//      }
     return index;
     }
 }
