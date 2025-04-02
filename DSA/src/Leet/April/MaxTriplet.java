@@ -37,10 +37,10 @@ public class MaxTriplet {
                 for (int k = j + 1; k < nums.length; k++) {
                     long value = ((long)nums[i] - nums[j]) * nums[k];
                     maxTriplet = Math.max(maxTriplet, value);
-                   /* if (maxTriplet<value){
-                        maxTriplet=value;
-                    }
-                    */
+//                   /* if (maxTriplet<value){
+//                        maxTriplet=value;
+//                    }
+//                    */
                 }
             }
         }
