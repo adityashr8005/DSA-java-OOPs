@@ -40,7 +40,7 @@ public class LargestDivSubset {
 
         //Declaration of an array of size nums.length;
         int[] arr = new int[nums.length];
-        //Filling all element sof arr with 1.
+        //Filling all elements of arr with 1.
         Arrays.fill(arr, 1);
 
         int max=0;
