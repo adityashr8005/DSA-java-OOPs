@@ -29,17 +29,22 @@ public class MinOperation {
     }
     static int minimunOperation(int[] nums, int k){
 
+        //Sorting an array.
         Arrays.sort(nums);
 
+        //Loop to return -1 if any element is less than k because we can't convert it to k.
         for (int num : nums) {
             if (num < k) {
                 return -1;
             }
         }
 
+        //Initializes count=0;
         int count=0;
+        //Loop for making all element equals to k.
         while (nums[0]!=k || nums[nums.length-1]!=k) {
             int h = nums[nums.length - 1];
+            //Inner loop for finding required h.
             for (int i = nums.length - 1; i >= 0; i--) {
                 if (h > nums[i]) {
                     h = nums[i];
@@ -51,6 +56,7 @@ public class MinOperation {
             }
 
             int i = nums.length - 1;
+            //Loop that convert every element greater than h into h itself.
             while (nums[i] != h) {
                 nums[i] = h;
                 if (i!=0) {
@@ -60,6 +66,7 @@ public class MinOperation {
             count++;
         }
 
+        //Return count (minimum number of operations)
         return count;
     }
 }
