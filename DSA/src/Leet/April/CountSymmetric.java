@@ -37,11 +37,10 @@ public class CountSymmetric {
             return 0;
         }
         int sum1=0 , sum2=0;
-        for (int i=0; i<str.length()/2; i++){
+        int half = str.length()/2;
+        for (int i=0; i<half; i++){
             sum1 += str.charAt(i);
-        }
-        for (int i=str.length()/2; i<str.length(); i++){
-            sum2 += str.charAt(i);
+            sum2 += str.charAt(half + i);
         }
 
         if (sum1==sum2){
