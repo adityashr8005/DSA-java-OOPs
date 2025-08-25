@@ -5,15 +5,16 @@ import java.util.Arrays;
 public class Sorted2D {
     public static void main(String[] args) {
         int[][] arr = {
-                {1},
-                {3}
+                {1,1},
+                {2,2}
         };
-        int target = 0;
+        int target = 3;
         int[] ans = search(arr,target);
         System.out.println(Arrays.toString(ans));
     }
 
     static int[] binarySearch(int[][] matrix, int row, int cStart, int cEnd, int target){
+        int cols = matrix[0].length;
 
         //Searching of a target element
         while (cStart<=cEnd){
@@ -30,24 +31,36 @@ public class Sorted2D {
         return new int[] {-1,-1};
     }
 
-    static int[] search(int[][] arr, int target){
-        int row = arr.length;
-        int cols = arr[0].length;
+    static int[] search(int[][] matrix, int target){
+        int row = matrix.length;
+        int cols = matrix[0].length;
 
         if (row==1){
-            return binarySearch(arr,0,0,cols-1,target);
+            return binarySearch(matrix,0,0,cols-1,target);
+        }
+        // Only one column → do vertical binary search
+        if (cols == 1) {
+            int top = 0, bottom = row-1;
+            while (top <= bottom) {
+                int mid = top + (bottom - top) / 2;
+                if (matrix[mid][0] == target) return new int[]{mid, 0};
+                if (matrix[mid][0] > target) bottom = mid - 1;
+                else top = mid + 1;
+            }
+            return new int[]{-1, -1};
         }
 
         int rStart = 0;
         int rEnd = row-1;
         int cMid = cols/2;
+
         //Run the loop till two rows are remaining
         while (rStart < (rEnd-1)){
-            int mid = rStart + rEnd /2;
-            if (arr[mid][cMid]==target){
+            int mid = rStart + (rEnd - rStart) / 2;
+            if (matrix[mid][cMid]==target){
                 return new int[]{mid,cMid};
             }
-            if (arr[mid][cMid] < target){
+            if (matrix[mid][cMid] < target){
                 rStart = mid;
             }else {
                 rEnd = mid;
@@ -55,27 +68,28 @@ public class Sorted2D {
         }
 
         //Now we have 2 rows
-        if (arr[rStart][cMid]==target){
+        if (matrix[rStart][cMid]==target){
             return new int[]{rStart,cMid};
         }
-        if (arr[rStart+1][cMid]==target){
+        if (matrix[rStart+1][cMid]==target){
             return new int[]{rStart+1,cMid};
         }
 
         //1st half searching
-        if (target <= arr[rStart][cMid-1]){
-            return binarySearch(arr,rStart,0,cMid-1,target);
+        if (target <= matrix[rStart][cMid-1]){
+            return binarySearch(matrix,rStart,0,cMid-1,target);
         }
-        //2nd half searching
-        if (target <= arr[rStart][cMid+1] && target <= arr[rStart][cols-1]){
-            return binarySearch(arr,rStart,cMid+1,cols-1,target);
+        // 2nd half
+        if (cMid<cols-1 && target >= matrix[rStart][cMid + 1] && target <= matrix[rStart][cols - 1]) {
+            return binarySearch(matrix, rStart, cMid + 1, cols - 1, target);
         }
-        //3rd half searching
-        if (target <= arr[rStart+1][cMid-1]){
-            return binarySearch(arr,rStart+1,0,cMid-1,target);
-        }else {
+        // 3rd half
+        if (target <= matrix[rStart + 1][cMid - 1]) {
+            return binarySearch(matrix, rStart + 1, 0, cMid - 1, target);
+        }
+        else {
         //4th half searching
-            return binarySearch(arr,rStart+1, cMid+1,cols-1,target);
+            return binarySearch(matrix,rStart+1, cMid-1,cols-1,target);
         }
     }
 }
