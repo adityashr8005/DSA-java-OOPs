@@ -14,7 +14,6 @@ public class Sorted2D {
     }
 
     static int[] binarySearch(int[][] matrix, int row, int cStart, int cEnd, int target){
-        int cols = matrix[0].length;
 
         //Searching of a target element
         while (cStart<=cEnd){
