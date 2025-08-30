@@ -10,7 +10,7 @@ public class SearchIn2D {
                 {28, 29, 37, 49},
                 {33, 34, 38, 50}
         };
-        int target = 33;
+        int target = 35;
         int[] ans = search(arr, target);
         System.out.println(Arrays.toString(ans));
     }
