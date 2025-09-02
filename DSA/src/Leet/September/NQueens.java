@@ -2,11 +2,16 @@ package Leet.September;
 
 public class NQueens {
     public static void main(String[] args) {
-        int n=1;
-        boolean[][] board = new boolean[n][n];
+        int n=5;
+
         System.out.println("All the combination possible");
-        System.out.println("Total number of combination:"+queen(board,0));
+        System.out.println("Total number of combination:"+ totalNQueens(n));
     }
+    static int totalNQueens(int n){
+        boolean[][] board = new boolean[n][n];
+        return queen(board,0);
+    }
+
     static int queen(boolean[][] board, int row){
         if (row==board.length){
             display(board);
@@ -36,7 +41,7 @@ public class NQueens {
         //Check left diagonal
         int maxLeft = Math.min(row,col);
         for (int i=1; i<=maxLeft; i++){
-            if (board[row-1][col-1]){
+            if (board[row-i][col-i]){
                 return false;
             }
         }
@@ -44,7 +49,7 @@ public class NQueens {
         //Check right diagonal
         int maxRight = Math.min(row, board.length-1-col);
         for (int i=1; i<=maxRight; i++){
-            if (board[row-1][col+1]){
+            if (board[row-i][col+i]){
                 return false;
             }
         }
