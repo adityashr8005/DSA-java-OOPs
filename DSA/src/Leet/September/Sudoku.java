@@ -3,15 +3,13 @@ package Leet.September;
 public class Sudoku {
     public static void main(String[] args) {
         char[][] board = {
-                {'.','8','7','6','5','4','3','2','1'},
-                {'2','.','.','.','.','.','.','.','.'},
-                {'3','.','.','.','.','.','.','.','.'},
-                {'4','.','.','.','.','.','.','.','.'},
-                {'5','.','.','.','.','.','.','.','.'},
-                {'6','.','.','.','.','.','.','.','.'},
-                {'7','.','.','.','.','.','.','.','.'},
-                {'8','.','.','.','.','.','.','.','.'},
-                {'1','.','.','.','.','.','.','.','.'}
+                {'1','2','3','4','.','.'},
+                {'.','.','.','.','.','.'},
+                {'.','3','4','5','6','.'},
+                {'.','.','.','.','.','.'},
+                {'.','.','2','3','4','5'},
+                {'.','.','.','.','.','.'}
+
         };
 
         solveSudoku(board);
@@ -50,7 +48,7 @@ public class Sudoku {
         }
 
         //Backtracking
-        for (char num='1'; num<='9'; num++){
+        for (char num='1'; num<='6'; num++){
             if (isSafe(board,row,col,num)){
                 board[row][col]=num;
                 if (solve(board)){
@@ -86,12 +84,13 @@ public class Sudoku {
             }
         }
 
-        int sqrt = (int)Math.sqrt(board.length);
-        int rowStart = row - row%sqrt;
-        int colStart = col - col%sqrt;
+//        int sqrt = (int)Math.sqrt(board.length);
+//        int sqrt = 3;
+        int rowStart = row - row%2;
+        int colStart = col - col%3;
 
-        for (int r=rowStart; r<rowStart+sqrt; r++){
-            for (int c=colStart; c<colStart+sqrt; c++){
+        for (int r=rowStart; r<rowStart+2; r++){
+            for (int c=colStart; c<colStart+3; c++){
                 if (board[r][c]==num){
                     return false;
                 }
