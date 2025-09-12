@@ -5,9 +5,9 @@ import java.util.List;
 
 public class SubSeqNoRecursion {
     public static void main(String[] args) {
-        int[] arr = {1,2,3};
+        int[] arr = {4,4,4,1,4};
         List<List<Integer>> ans = subSeq(arr);
-        System.out.println(ans);
+//        System.out.println(ans);
 
         List<List<Integer>> ans2 = subSeqDuplicate(arr);
         System.out.println(ans2);
