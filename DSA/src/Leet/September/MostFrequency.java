@@ -1,7 +1,5 @@
 package Leet.September;
 
-import java.util.HashMap;
-
 /*
 Example 1:
 Input: s = "successes"
