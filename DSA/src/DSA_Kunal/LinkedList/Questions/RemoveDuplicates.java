@@ -67,6 +67,23 @@ public class RemoveDuplicates {
             }
             System.out.println("END");
         }
+
+        public void removeElem(int val) {
+            RemoveDuplicates.Node node = head;
+
+            while (head != null && head.value == val) {
+                head = head.next;
+            }
+
+            while (node != null && node.next != null) {
+
+                if (node.next.value == val) {
+                    node.next = node.next.next;
+                } else {
+                    node = node.next;
+                }
+            }
+        }
     }
 
     public static class Node{
