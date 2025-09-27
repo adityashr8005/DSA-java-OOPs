@@ -9,7 +9,9 @@ public class RemoveDuplicates {
         list.insertLast(3);
         list.insertLast(3);
         list.display();
-        list.removeDuplicate();
+//        list.removeDuplicate();
+        list.display();
+        list.removeDup2(-1);
         list.display();
     }
 
@@ -57,6 +59,41 @@ public class RemoveDuplicates {
             }
             tail = node;
             tail.next = null;
+        }
+
+        public void removeDup2(int val){
+            Node s = head;
+            Node f = head.next;
+            System.out.println(s.value);
+            System.out.println(f.value);
+            while (f.next != null && s.next != null){
+                if (s.value == f.value){
+                    head = f.next;
+                }else {
+                    head = f;
+                }
+                s=s.next;
+                f=f.next;
+
+                ///approach...
+
+                Node dummy = new Node(val);
+                dummy.next = head;
+                Node prev = dummy;
+                Node curr = head;
+
+                while (curr !=null && curr.next != null){
+                    if (curr.value == curr.next.value){
+                        while (curr.next != null && curr.value == curr.next.value){
+                            curr = curr.next;
+                        }
+                        prev.next = curr.next;
+                    }else {
+                        prev = prev.next;
+                    }
+                    curr = curr.next;
+                }
+            }
         }
 
         public void display(){
