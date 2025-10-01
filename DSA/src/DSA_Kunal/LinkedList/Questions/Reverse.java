@@ -57,9 +57,9 @@ public class Reverse {
         int value;
         Node next;
 
-        Node(int value){
-            this.value = value;
-        }
-    }
+       public Node(int value) {
+           this.value = value;
+       }
+   }
 
 }
