@@ -36,7 +36,7 @@ public class MultiplyString {
 
         StringBuilder str = new StringBuilder();
         for (int p : pos){
-            if (!(str.length()==0 && p==0)){
+            if (!(str.isEmpty() && p==0)){
                 str.append(p);
             }
         }
