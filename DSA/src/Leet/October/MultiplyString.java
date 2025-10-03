@@ -41,6 +41,8 @@ public class MultiplyString {
             }
         }
         return str.toString();
+
+        //1st Approach not optimised for longer string...
 //        int a=0, b=0;
 //        for (int i=0; i<num1.length(); i++){
 //            a = a*10 + num1.charAt(i)-48;
