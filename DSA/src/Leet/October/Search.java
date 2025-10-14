@@ -57,10 +57,10 @@ public class Search {
                     s = mid + 1;
                 }
             }else {
-                if (nums[mid] <= target && target <= nums[e]){
-                    s = mid + 1;
-                }else {
+                if (target <= nums[mid] && target <= nums[e]){
                     e = mid - 1;
+                }else {
+                    s = mid + 1;
                 }
             }
         }
