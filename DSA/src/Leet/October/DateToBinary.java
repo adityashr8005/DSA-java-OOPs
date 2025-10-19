@@ -3,6 +3,7 @@ package Leet.October;
 public class DateToBinary {
     public static void main(String[] args) {
         String date = "2080-02-29";
+        System.out.println(date);
         System.out.println(dateToBin(date));
     }
 
@@ -14,7 +15,7 @@ public class DateToBinary {
             int num = Integer.parseInt(digits[i]);
             s.append(convert(num));
 
-            if (i< digits.length-1){
+            if (i<digits.length-1){
                 s.append("-");
             }
         }
