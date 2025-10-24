@@ -13,8 +13,9 @@ public class AddBinary {
     public static void main(String[] args) {
         String a = "111";
         String b = "11";
-        addNumber(a,b);
-        System.out.println(addBinary(a,b));
+        System.out.println("a=" + a + " b=" + b);
+        System.out.println("Normal Addition:"+addNumber(a,b));
+        System.out.println("Binary Addition:"+addBinary(a,b));
     }
 
     public static String addNumber(String a, String b){
