@@ -1,6 +1,8 @@
-package BinaryTree;
+package Tree.BinaryTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class BinaryTree {
@@ -52,6 +54,19 @@ public class BinaryTree {
         inOrder(root.left);
         System.out.print(root.data + " ");
         inOrder(root.right);
+    }
+
+    public static List<Integer> inOrderTraversal(Node root){
+        List<Integer> list = new ArrayList<>();
+        if (root == null){
+            return list;
+        }
+
+        list.addAll(inOrderTraversal(root.left));
+        list.add(root.data);
+        list.addAll(inOrderTraversal(root.right));
+
+        return list;
     }
 
     public static void postOrder(Node root){
@@ -172,6 +187,46 @@ public class BinaryTree {
         return myInfo;
     }
 
+    public static void countKthNodes(Node node){
+        if (node == null){
+            return;
+        }
+
+        Queue<Node> q = new LinkedList<>();
+        q.add(node);
+        q.add(null);
+
+        int k = 1;
+        int count = 0;
+        while (!q.isEmpty()){
+            Node currNode = q.remove();
+
+            if (currNode == null){
+                k++;
+                System.out.println();
+                if (q.isEmpty()){
+                    break;
+                }else {
+                    q.add(null);
+                }
+            }else {
+                System.out.print(currNode.data + " ");
+
+                if (currNode.left != null){
+                    q.add(currNode.left);
+                }
+                if (currNode.right != null){
+                    q.add(currNode.right);
+                }
+
+                if (k==3){
+                    count++;
+                }
+            }
+        }
+        System.out.println("Kth Nodes : " + count);
+    }
+
     public static void main(String[] args) {
         int[] nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         Binary_Tree tree = new Binary_Tree();
@@ -206,5 +261,12 @@ public class BinaryTree {
         System.out.print("Diameter of Tree : ");
         System.out.println(diameterNode(root));
         System.out.println(diameter2(root).diam);
+        System.out.println();
+
+        System.out.println("InOrder");
+        System.out.println(inOrderTraversal(root));
+        System.out.println();
+
+        countKthNodes(root);
     }
 }
