@@ -1,4 +1,4 @@
-package Tree.BinarySearchTree;
+package DSA_Kunal.TreeByApna.BinarySearchTree;
 
 import java.util.ArrayList;
 

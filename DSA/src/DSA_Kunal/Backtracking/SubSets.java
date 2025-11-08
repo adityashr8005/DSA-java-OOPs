@@ -1,4 +1,4 @@
-package Backtracking;
+package DSA_Kunal.Backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;

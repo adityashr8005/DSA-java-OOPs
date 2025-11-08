@@ -1,4 +1,4 @@
-package Backtracking;
+package DSA_Kunal.Backtracking;
 
 public class Sudoku {
     public static void main(String[] args) {

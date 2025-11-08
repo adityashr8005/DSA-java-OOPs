@@ -1,4 +1,4 @@
-package Tree.BinaryTree;
+package DSA_Kunal.TreeByApna.BinaryTree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
