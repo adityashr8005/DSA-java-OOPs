@@ -29,6 +29,7 @@ Constraints:
  */
 public class HouseRobber {
 
+    //Approach I
     public static int dp(int[] nums, int[] dp){
         // Time Complexity : O (n^3)
         for (int i=0; i<=nums.length-2; i++){
@@ -57,10 +58,12 @@ public class HouseRobber {
 
 //        return dp(nums,dp);
 
+        //Approach II
+
         //Time Complexity : O(n)
         dp[0] = nums[0];
         dp[1] = Math.max(nums[0], nums[1]);
-        for (int i=2; i<nums.length; ++i){
+        for (int i=2; i<nums.length; i++){
             int total = nums[i] + dp[i-2];
             int prev = dp[i-1];
             dp[i] = Math.max(total,prev);
