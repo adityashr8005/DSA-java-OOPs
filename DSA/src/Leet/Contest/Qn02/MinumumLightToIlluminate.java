@@ -43,37 +43,84 @@ Constraints:
 public class MinumumLightToIlluminate {
 
     public static int minLights(int[] lights){
-        int n = lights.length;
+//        int n = lights.length;
+//
+//        boolean[] visible = new boolean[n];
+//        //[f,f,f,f]
+//
+//        for (int i=0; i<n; i++){
+//            if (lights[i]>0){
+//                int left = Math.max(0, i-lights[i]);
+//                int right = Math.min(n-1, i+lights[i]);
+//
+//                for (int j=left; j<=right; j++){
+//                    visible[j] = true;
+//                }
+//            }
+//        }
+//
+//        int ans = 0;
+//        int i = 0;
+//
+//        while (i<n){
+//            if (visible[i]){
+//                i++;
+//            }else{
+//                int position = Math.min(n-1, i+1);
+//                int left = Math.max(0, position-1);
+//                int right = Math.min(n-1, position+1);
+//
+//                for (int j=left; j<=right; j++){
+//                    visible[j] = true;
+//                }
+//                ans++;
+//            }
+//        }
+//
+//        return ans;
 
-        boolean[] visible = new boolean[n];
-        //[f,f,f,f]
+
+
+
+
+        //More optimal solution O(N)
+        //[0,2,0,0,0,0,0,1]
+
+        //dif[]=[1,0,0,0,-1,0,0,0,0]
+        //left  dif[l]++
+        //right dif[r+1]--
+
+        int n = lights.length;
+        int[] diff = new int[n+1];
 
         for (int i=0; i<n; i++){
-            if (lights[i]>0){
-                int left = Math.max(0, i-lights[i]);
+            if (lights[i] > 0 ){
+                int left = Math.max(0,i-lights[i]);
                 int right = Math.min(n-1, i+lights[i]);
 
-                for (int j=left; j<=right; j++){
-                    visible[j] = true;
-                }
+                diff[left]++;
+                diff[right+1]--;
             }
         }
 
         int ans = 0;
-        int i = 0;
+        int visible = 0;
 
-        while (i<n){
-            if (visible[i]){
-                i++;
-            }else{
-                int position = Math.min(n-1, i+1);
-                int left = Math.max(0, position-1);
+        for (int i=0; i<n; i++){
+            visible += diff[i];
+
+            if (visible == 0){
+                ans++;
+
+                int position = Math.min(i+1, n-1);
+
+                int left = Math.max(0,position-1);
                 int right = Math.min(n-1, position+1);
 
-                for (int j=left; j<=right; j++){
-                    visible[j] = true;
-                }
-                ans++;
+                diff[left]++;
+                diff[right+1]--;
+
+                visible++;
             }
         }
 
@@ -81,7 +128,7 @@ public class MinumumLightToIlluminate {
     }
 
     public static void main(String[] args) {
-        int[] lights = {0,2,0,0,0};
+        int[] lights = {0,2,0,0,0,0,0,0};
 
         int ans = minLights(lights);
         System.out.println(ans);
