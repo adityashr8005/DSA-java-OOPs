@@ -1,4 +1,4 @@
-package Leet.Contest;
+package Leet.Contest.Qn01;
 
 
 /*
